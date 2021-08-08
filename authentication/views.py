@@ -24,5 +24,16 @@ def registerFunction(request):
         forms = UserCreation()
     return render(request,"html/auth/register.html",{'form':form})
 
-
+def loginFunction(request):
+    if request.method == 'POST':
+        form = LoginForm(request = request,data = request.POST)
+        if form.is_valid():
+            username = form.cleaned_data['username']
+            pas = form.cleaned_data['password']
+            usr = authenticate(username=username,password = pas)
+            login(request,usr)
+            return HttpResponse("Login success")
+    else:
+        log = LoginForm()
+    return render(request,"html/auth/login.html",{'form':form})
 
