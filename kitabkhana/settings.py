@@ -1,4 +1,5 @@
 from pathlib import Path
+import registerfrontend
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -28,7 +29,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'authentication',
     'books',
-    'chart'
+    'chart',
+    'registerfrontend'
 ]
 
 MIDDLEWARE = [
