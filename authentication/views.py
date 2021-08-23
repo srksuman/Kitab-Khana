@@ -42,5 +42,5 @@ def loginFunction(request):
             form = LoginForm()
         return render(request,"html/auth/login.html",{'form':form})
     else:
-        return HttpResponse("Login")
+        return HttpResponse("Login") 
 
