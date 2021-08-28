@@ -1,0 +1,482 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+<title>Login </title>
+<!-- for-mobile-apps -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Grocery Store Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+		function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //for-mobile-apps -->
+<link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" type="text/css" media="all" />
+<link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" media="all" />
+<!-- font-awesome icons -->
+<link href="{% static 'css/font-awesome.css' %}" rel="stylesheet" type="text/css" media="all" /> 
+<!-- //font-awesome icons -->
+<!-- js -->
+<script src="{% static 'js/jquery-1.11.1.min.js' %}"></script>
+<!-- //js -->
+<link href='//fonts.googleapis.com/css?family=Ubuntu:400,300,300italic,400italic,500,500italic,700,700italic' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+<!-- start-smoth-scrolling -->
+<script type="text/javascript" src="{% static 'js/move-top.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/easing.js' %}"></script>
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$(".scroll").click(function(event){		
+			event.preventDefault();
+			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+		});
+	});
+</script>
+<!-- start-smoth-scrolling -->
+</head>
+	
+<body>
+<!-- header -->
+	<div class="agileits_header">
+		<div class="w3l_offers">
+			<a href="products.html">Today's special Offers !</a>
+		</div>
+		<div class="w3l_search">
+			<form action="#" method="post">
+				<input type="text" name="Product" value="Search a product..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search a product...';}" required="">
+				<input type="submit" value=" ">
+			</form>
+		</div>
+		
+		<div class="w3l_header_right">
+			<ul>
+				<li class="dropdown profile_details_drop">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user" aria-hidden="true"></i><span class="caret"></span></a>
+					<div class="mega-dropdown-menu">
+						<div class="w3ls_vegetables">
+							<ul class="dropdown-menu drp-mnu">
+								<li><a href="login.html">Login</a></li> 
+								<li><a href="login.html">Sign Up</a></li>
+							</ul>
+						</div>                  
+					</div>	
+				</li>
+			</ul>
+		</div>
+		<div class="w3l_header_right1">
+			<h2><a href="mail.html">Contact Us</a></h2>
+		</div>
+		<div class="clearfix"> </div>
+	</div>
+<!-- script-for sticky-nav -->
+	<script>
+	$(document).ready(function() {
+		 var navoffeset=$(".agileits_header").offset().top;
+		 $(window).scroll(function(){
+			var scrollpos=$(window).scrollTop(); 
+			if(scrollpos >=navoffeset){
+				$(".agileits_header").addClass("fixed");
+			}else{
+				$(".agileits_header").removeClass("fixed");
+			}
+		 });
+		 
+	});
+	</script>
+<!-- //script-for sticky-nav -->
+	<div class="logo_products">
+		<div class="container">
+			<div class="w3ls_logo_products_left">
+				<h1><a href="index.html"><span>KitabKhana</span> Master</a></h1>
+			</div>
+			<div class="w3ls_logo_products_left1">
+				<ul class="special_items">
+					<li><a href="index.html">Home</a><i>/</i></li>
+					<li><a href="about.html">About Us</a><i>/</i></li>
+					<li><a href="products.html">Best Deals</a><i>/</i></li>
+					<li><a href="services.html">Services</a></li>
+				</ul>
+			</div>
+			<div class="w3ls_logo_products_left1">
+				<ul class="phone_email">
+					<li><i class="fa fa-phone" aria-hidden="true"></i>(+977) 9869333066</li>
+					<li><i class="fa fa-envelope-o" aria-hidden="true"></i><a href="#">KitabKhana@gmail.com</a></li>
+				</ul>
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+	</div>
+<!-- //header -->
+<!-- products-breadcrumb -->
+	<div class="products-breadcrumb">
+		<div class="container">
+			<ul>
+				<li><i class="fa fa-home" aria-hidden="true"></i><a href="index.html">Home</a><span>|</span></li>
+				<li>Sign In & Sign Up</li>
+			</ul>
+		</div>
+	</div>
+<!-- //products-breadcrumb -->
+<!-- banner -->
+		<div class="banner">
+		<div class="w3l_banner_nav_left">
+			<nav class="navbar nav_bottom">
+			 <!-- Brand and toggle get grouped for better mobile display -->
+			  <div class="navbar-header nav_2">
+				  <button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				  </button>
+			   </div> 
+			   <!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
+					<ul class="nav navbar-nav nav_1">
+						<li><a href="products.html">Novel</a></li>
+						<li><a href="#">Historical</a></li>
+						<li class="dropdown mega-dropdown active">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Award Winning Books<span class="caret"></span></a>				
+							<div class="dropdown-menu mega-dropdown-menu w3ls_vegetables_menu">
+								<div class="w3ls_vegetables">
+									<ul>	
+										<li><a href="#">Novel</a></li>
+										<li><a href="#">Historical</a></li>
+									</ul>
+								</div>                  
+							</div>				
+						</li>
+						<li><a href="#">Literary</a></li>
+						<li><a href="#">Fantasy</a></li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Other<span class="caret"></span></a>
+							<div class="dropdown-menu mega-dropdown-menu w3ls_vegetables_menu">
+								<div class="w3ls_vegetables">
+									<ul>
+										<li><a href="#">+2</a></li>
+										<li><a href="#">Bachelor</a></li>
+										<li><a href="#">Master  and degree</a></li>
+										
+										
+									</ul>
+								</div>                  
+							</div>	
+						</li>
+						<li><a href="#">Action and Adventure</a></li>
+				
+						
+					</ul>
+				 </div><!-- /.navbar-collapse -->
+			</nav>
+		</div>
+		<div class="w3l_banner_nav_right">
+<!-- login -->
+		<div class="w3_login">
+			<h3>Sign In & Sign Up</h3>
+			<div class="w3_login_module">
+				<div class="module form-module">
+				  <div class="toggle"><i class="fa fa-times fa-pencil"></i>
+					<div class="tooltip">Click Me</div>
+				  </div>
+				  <div class="form">
+					<h2>Login to your account</h2>
+					<form action="" method="post">
+					  {% comment %} <input type="text" name="Username" placeholder="Username" required=" ">
+					  <input type="password" name="Password" placeholder="Password" required=" "> {% endcomment %}
+					  {{loginForm}}
+					  <input type="submit" value="Login" id="log" name="login">
+					</form>
+				  </div>
+				  <div class="form">
+					<h2>Create an account</h2>
+					<form action="" method="post" id = "reg_form_data" novalidate>
+					  {% comment %} <input type="text" name="Username" placeholder="Username" required=" ">
+					  <input type="password" name="Password" placeholder="Password" required=" ">
+					  <input type="email" name="Email" placeholder="Email Address" required=" ">
+					  <input type="text" name="Phone" placeholder="Phone Number" required=" "> {% endcomment %}
+					  {% csrf_token %}
+
+{{userCreation.username}}
+<div class="error_username">{{userCreation.username.errors|striptags}}</div>
+
+
+{{userCreation.first_name}} 
+<div class="error_fname">{{userCreation.first_name.errors|striptags}}</div>
+<br>
+
+{{userCreation.last_name}}
+{{userCreation.last_name.errors|striptags}}
+<div class="error_lname">{{userCreation.last_name.errors|striptags}}</div>
+
+ <br>
+
+{{userCreation.email}}
+<div class="error_email">
+{{userCreation.email.errors|striptags}}</div>
+ <br>
+
+
+{{userCreation.password1}} 
+<div class="error_password1">
+{{userCreation.password1.errors|striptags}}</div>
+<br>
+
+{{userCreation.password2}} 
+<div class="error_password2">
+{{userCreation.password2.errors|striptags}} </div> <br>
+<small>{{userCreation.password2.help_text}}</small>
+<br>
+<input type="submit" value="Register" id="reg" name="reg_form">
+					</form>
+
+				  </div>
+				  <div class="cta success_msg"></div>
+				</div>
+			</div>
+			<script>
+				$('.toggle').click(function(){
+				  // Switches the Icon
+				  $(this).children('i').toggleClass('fa-pencil');
+				  // Switches the forms  
+				  $('.form').animate({
+					height: "toggle",
+					'padding-top': 'toggle',
+					'padding-bottom': 'toggle',
+					opacity: "toggle"
+				  }, "slow");
+				});
+			</script>
+		</div>
+<!-- //login -->
+		</div>
+		<div class="clearfix"></div>
+	</div>
+
+	
+<!-- //newsletter -->
+<!-- footer -->
+	<div class="footer">
+		<div class="container">
+			<div class="col-md-3 w3_footer_grid">
+				<h3>information</h3>
+				<ul class="w3_footer_grid_list">
+					
+					<li><a href="about.html">About Us</a></li>
+					<li><a href="products.html">Best Deals</a></li>
+					<li><a href="services.html">Services</a></li>
+					
+				</ul>
+			</div>
+			<div class="col-md-3 w3_footer_grid">
+				<h3>policy info</h3>
+				<ul class="w3_footer_grid_list">
+					<li><a href="faqs.html">FAQ</a></li>
+				
+				
+				</ul>
+			</div>
+			<div class="col-md-3 w3_footer_grid">
+				<h3>what in stores</h3>
+				<ul class="w3_footer_grid_list">
+					
+					<li><a href="#">Novel</a></li>
+					<li><a href="#">Historical</a></li>
+					<li><a href="#">Literary</a></li>
+					<li><a href="#">Others</a></li>
+				</ul>
+			</div>
+			<div class="col-md-3 w3_footer_grid">
+				<h3>twitter posts</h3>
+				<ul class="w3_footer_grid_list1">
+					<li><label class="fa fa-twitter" aria-hidden="true"></label><i></i><span> <a href="#"></a>
+						
+						<a href="#"></a></span></li>
+					<li><label class="fa fa-twitter" aria-hidden="true"></label><i></i><span><a href="#"></a>
+					
+						<a href="#"></a></span></li>
+				</ul>
+			</div>
+			<div class="clearfix"> </div>
+			<div class="agile_footer_grids">
+				<div class="col-md-3 w3_footer_grid agile_footer_grids_w3_footer">
+					<div class="w3_footer_grid_bottom">
+						
+						
+					</div>
+				</div>
+				<div class="col-md-3 w3_footer_grid agile_footer_grids_w3_footer">
+					<div class="w3_footer_grid_bottom">
+						<h5>connect with us</h5>
+						<ul class="agileits_social_icons">
+							<li><a href="#" class="facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+							<li><a href="#" class="twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+							<li><a href="#" class="google"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+							<li><a href="#" class="instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+							<li><a href="#" class="dribbble"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+			<div class="wthree_footer_copy">
+				<p>© 2021 Group 6. All rights reserved | Design by Group 6</a></p>
+			</div>
+		</div>
+	</div>
+<!-- //footer -->
+<!-- Bootstrap Core JavaScript -->
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script>
+$(document).ready(function(){
+	
+    $(".dropdown").hover(            
+        function() {
+            $('.dropdown-menu', this).stop( true, true ).slideDown("fast");
+            $(this).toggleClass('open');        
+        },
+        function() {
+            $('.dropdown-menu', this).stop( true, true ).slideUp("fast");
+            $(this).toggleClass('open');       
+        }
+    );
+});
+</script>
+<!--regestration-->
+
+<script>
+$(document).ready(function(){
+    $("#reg").click(function(e){
+		
+        e.preventDefault()
+        
+
+        datas = {}
+       
+        form_data = $("#reg_form_data").serializeArray();
+        
+        $.each(form_data,function(i,data){
+            datas[data.name] = data.value 
+           
+        })
+        {% comment %} console.log(datas) {% endcomment %}
+       
+        
+       
+        
+        $.ajax({
+           method:"POST",
+           url: {% url 'reg' %},
+           data:datas,
+            success:function(data){
+                {% comment %} console.log(data.error_name)
+                console.log(data.error_value) {% endcomment %}
+
+                data_error_dic = {}
+				if (data.error_name){
+                $.each(data.error_name,function(k,v){
+                    data_error_dic[v] = data.error_value[k]
+
+                })
+				}
+                console.log(data_error_dic)
+                
+       
+        if (data_error_dic["username"]){
+            $('.error_username').html(data_error_dic["username"])
+
+        }else{
+           $('.error_username').html("")
+ 
+        }
+        if (data_error_dic["first_name"]){
+            $('.error_fname').html(data_error_dic["first_name"])
+
+        }else{
+            $('.error_fname').html("")
+
+        }
+        if (data_error_dic["last_name"]){
+            $('.error_lname').html(data_error_dic["last_name"])
+
+        }else{
+            $('.error_lname').html("")
+
+        }
+        if (data_error_dic["email"]){
+            $('.error_email').html(data_error_dic["email"])
+
+        }else{
+            $('.error_email').html("")
+
+        }
+        if (data_error_dic["password1"]){
+            $('.error_password1').html(data_error_dic["password1"])
+
+        }else{
+            $('.error_password1').html("")
+
+        }
+        if (data_error_dic["password2"]){
+            $('.error_password2').html(data_error_dic["password2"])
+
+        }else{
+            $('.error_password2').html("")
+
+        }
+
+        if(data.error_email){
+            console.log(data.error_email)
+            $('.error_email').html(data.error_email)
+        }
+
+        if (data.status == 200){
+           
+            $('.success_msg').html("Account is created successfully!")
+
+            $('form')[1].reset()
+        }
+               
+               
+            }
+        })
+        
+    })
+    
+})
+</script>
+<!-- here stars scrolling icon -->
+	<script type="text/javascript">
+		$(document).ready(function() {
+		
+								
+			$().UItoTop({ easingType: 'easeOutQuart' });
+								
+			});
+	</script>
+<!-- //here ends scrolling icon -->
+<script src="{% static 'js/minicart.js' %}"></script>
+<script>
+		paypal.minicart.render();
+
+		paypal.minicart.cart.on('checkout', function (evt) {
+			var items = this.items(),
+				len = items.length,
+				total = 0,
+				i;
+
+			// Count the number of each item in the cart
+			for (i = 0; i < len; i++) {
+				total += items[i].get('quantity');
+			}
+
+			if (total < 3) {
+				alert('The minimum order quantity is 3. Please add more to your shopping cart before checking out');
+				evt.preventDefault();
+			}
+		});
+
+	</script>
+</body>
+</html>

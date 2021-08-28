@@ -9,7 +9,7 @@ def validete_username(value):
     if len(value)<=2:
         raise forms.ValidationError(f"Your username cannot be of {len(value)}  word")
 
-class UserCreation(UserCreationForm):
+class UserCreationForm(UserCreationForm):
     password1 = forms.CharField(label="Password", widget = forms.PasswordInput(attrs={"placeholder":"Password",'autocomplete':'new-password'}),error_messages={"required":"Please enter password"},)
     password2 = forms.CharField(label="Re-enter",widget= forms.PasswordInput(attrs={"placeholder":"RE-Enter",'autocomplete':'new-password'}),help_text="Make sure your password contains 'small letter','capital letter','numbers' and 'symbols'",error_messages={"required":"Re-Enter password field cannot be empty"})
     username = forms.CharField(label="username",widget=forms.TextInput(attrs={"placeholder":"Username","id":"username"}),validators=[validete_username])
