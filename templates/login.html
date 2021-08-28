@@ -182,11 +182,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				  </div>
 				  <div class="form">
 					<h2>Login to your account</h2>
-					<form action="" method="post">
+					<form action="" method="post" novalidate id="log_from_data">
 					  {% comment %} <input type="text" name="Username" placeholder="Username" required=" ">
 					  <input type="password" name="Password" placeholder="Password" required=" "> {% endcomment %}
-					  {{loginForm}}
-					  <input type="submit" value="Login" id="log" name="login">
+					  {% csrf_token %}
+					  {{loginForm.username}}
+					  <small class="login_username_error text-danger"></small>
+					  {{loginForm.password}}
+					  <small class="login_password_error text-danger"></small>
+					  <input type="submit" value="Login" id="login" name="login">
 					</form>
 				  </div>
 				  <div class="form">
@@ -199,40 +203,39 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					  {% csrf_token %}
 
 {{userCreation.username}}
-<div class="error_username">{{userCreation.username.errors|striptags}}</div>
+<small class="error_username text-danger font-weight-lighter font-italic" >{{userCreation.username.errors|striptags}}</small>
 
 
 {{userCreation.first_name}} 
-<div class="error_fname">{{userCreation.first_name.errors|striptags}}</div>
-<br>
+<small class="error_fname text-danger">{{userCreation.first_name.errors|striptags}}</small>
+
 
 {{userCreation.last_name}}
-{{userCreation.last_name.errors|striptags}}
-<div class="error_lname">{{userCreation.last_name.errors|striptags}}</div>
+<small class="error_lname text-danger">{{userCreation.last_name.errors|striptags}}</small>
 
- <br>
+
 
 {{userCreation.email}}
-<div class="error_email">
-{{userCreation.email.errors|striptags}}</div>
- <br>
+<small class="error_email text-danger">
+{{userCreation.email.errors|striptags}}</small>
+
 
 
 {{userCreation.password1}} 
-<div class="error_password1">
-{{userCreation.password1.errors|striptags}}</div>
-<br>
+<small class="error_password1 text-danger">
+{{userCreation.password1.errors|striptags}}</small>
+
 
 {{userCreation.password2}} 
-<div class="error_password2">
-{{userCreation.password2.errors|striptags}} </div> <br>
-<small>{{userCreation.password2.help_text}}</small>
-<br>
+<small class="error_password2 text-danger">
+{{userCreation.password2.errors|striptags}} </small> <br>
+{% comment %} <small>{{userCreation.password2.help_text}}</small> {% endcomment %}
+
 <input type="submit" value="Register" id="reg" name="reg_form">
 					</form>
 
 				  </div>
-				  <div class="cta success_msg"></div>
+				  <div class="cta success_msg error_msg"></div>
 				</div>
 			</div>
 			<script>
@@ -445,6 +448,87 @@ $(document).ready(function(){
     })
     
 })
+</script>
+<!--Login process-->
+<script>
+$(document).ready(function(){
+    $("#login").click(function(e){
+		
+        e.preventDefault()
+        
+
+        datas = {}
+       
+        form_data = $("#log_from_data").serializeArray();
+        
+        $.each(form_data,function(i,data){
+            datas[data.name] = data.value 
+           
+        })
+        {% comment %} console.log(datas) {% endcomment %}
+       
+        
+        $.ajax({
+           method:"POST",
+           url: {% url 'login' %},
+           data:datas,
+            success:function(data){
+                {% comment %} console.log(data.error_name)
+                console.log(data.error_value) {% endcomment %}
+
+                data_error_dic = {}
+				if (data.error_name){
+                $.each(data.error_name,function(k,v){
+                    data_error_dic[v] = data.error_value[k]
+
+                })
+				}
+                console.log(data_error_dic)
+                
+       
+        if (data_error_dic["username"]){
+            $('.login_username_error').html(data_error_dic["username"])
+
+        }else{
+           $('.login_username_error').html("")
+ 
+        }
+
+		if(data_error_dic['__all__']){
+			console.log(data_error_dic['__all__'])
+			 $('.error_msg').html(data_error_dic['__all__'])
+		}else{
+		$('.error_msg').html("")	
+		}
+        
+        
+        if (data_error_dic["password"]){
+            $('.login_password_error').html(data_error_dic["password"])
+
+        }else{
+            $('.login_password_error').html("")
+
+        }
+       
+
+        if (data.status == 200){
+           
+            {% comment %} $('.success_msg').html("Account is created successfully!") {% endcomment %}
+
+            window.location = "{% url 'home' %}"
+        }
+		if(data.status == 203){
+			 $('.error_msg').html("Someting Went wrong")
+		}
+               
+               
+            }
+        })
+        
+    })
+    
+})
+
 </script>
 <!-- here stars scrolling icon -->
 	<script type="text/javascript">

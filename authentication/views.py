@@ -11,39 +11,42 @@ from django.contrib.auth.models import User
 from django.contrib.auth import get_user_model
 from django.http import HttpResponse,JsonResponse
 # Create your views here.
-def registerFunction(request):
-    if not request.user.is_authenticated:
-        if request.method =="POST":
-                form = UserCreationForm(request.POST)
-                if form.is_valid():
-                    form.save()
-                    messages.success(request,"Account is created successfully!")
-                    return HttpResponseRedirect('')
-                else:
-                    log = LoginForm(request = request,data = request.POST)
+# def registerFunction(request):
+#     if not request.user.is_authenticated:
+#         if request.method =="POST":
+#                 form = UserCreationForm(request.POST)
+#                 if form.is_valid():
+#                     form.save()
+#                     messages.success(request,"Account is created successfully!")
+#                     return HttpResponseRedirect('')
+#                 else:
+#                     log = LoginForm(request = request,data = request.POST)
 
-        else:  
-            form = UserCreationForm()
-        return render(request,"login.html",{'form':form})
-    else:
-        return HttpResponse("hello")
+#         else:  
+#             form = UserCreationForm()
+#         return render(request,"login.html",{'form':form})
+#     else:
+#         return HttpResponse("hello")
 
-def loginFunction(request):
-    if not request.user.is_authenticated:
-        if request.method == 'POST':
-            form = LoginForm(request = request,data = request.POST)
-            if form.is_valid():
-                username = form.cleaned_data['username']
-                pas = form.cleaned_data['password']
-                usr = authenticate(username=username,password = pas)
-                login(request,usr)
-                messages.success(request,"Account is created successfully!")
-                return HttpResponse("Login success")
-        else:
-            form = LoginForm()
-        return render(request,"login.html",{'form':form})
-    else:
-        return HttpResponse("Login") 
+def index_page(request):
+    return render(request,'index.html')
+
+# def loginFunction(request):
+#     if not request.user.is_authenticated:
+#         if request.method == 'POST':
+#             form = LoginForm(request = request,data = request.POST)
+#             if form.is_valid():
+#                 username = form.cleaned_data['username']
+#                 pas = form.cleaned_data['password']
+#                 usr = authenticate(username=username,password = pas)
+#                 login(request,usr)
+#                 messages.success(request,"Account is created successfully!")
+#                 return HttpResponse("Login success")
+#         else:
+#             form = LoginForm()
+#         return render(request,"login.html",{'form':form})
+#     else:
+#         return HttpResponse("Login") 
 
 
 # def signin_signup_function(request):
@@ -104,5 +107,36 @@ def signup_ajax_function(request):
             return JsonResponse({"status":"errors","error_name":error_name,"error_value":error_value})
     else:
         return JsonResponse({"status":"Failed"})
+
+
+
+def signin_ajax_function(request):
+    if request.method == 'POST':
+        form = LoginForm(request=request,data=request.POST)
+        if form.is_valid():
+            username = form.cleaned_data['username']
+            pas = form.cleaned_data['password']
+            try:
+                usr = authenticate(username=username,password = pas)
+            except:
+                return JsonResponse({'status':203})
+            login(request,usr)
+            return JsonResponse({'status':200})     
+            
+        else:
+            error_name =[]
+            error_value = []
+            for i,j in form.errors.as_data().items():
+                print(i,j[0])
+                for m in j[0]:
+                    error_value.append(m)
+                error_name.append(i)
+                
+            print(form.errors.as_data())
+            error = form.errors.as_data()
+            return JsonResponse({"status":"errors","error_name":error_name,"error_value":error_value})
+    else:
+        return JsonResponse({"status":"Failed"})
+
 
 
