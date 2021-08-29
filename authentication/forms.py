@@ -23,6 +23,10 @@ class UserCreationForm(UserCreationForm):
 class LoginForm(AuthenticationForm):
     username = UsernameField(widget=forms.TextInput(attrs={"placeholder":"Username"}),error_messages={'required':'Username is required'})
     password = forms.CharField(widget=forms.PasswordInput(attrs={"placeholder":"password",'autocomplete':'current-password'}),error_messages={'required':'Password is required'})    
+
+class VerifyForm(forms.Form):
+    otp = forms.CharField(label='OTP',max_length=70,widget=forms.TextInput(attrs={'class':'form-control','placeholder':'OTP','required':True}),error_messages={'required':'Enter a otp'})
+
         
         
        
