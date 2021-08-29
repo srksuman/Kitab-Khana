@@ -10,6 +10,7 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth.models import User
 from django.contrib.auth import get_user_model
 from django.http import HttpResponse,JsonResponse
+import random
 # Create your views here.
 # def registerFunction(request):
 #     if not request.user.is_authenticated:
@@ -108,6 +109,11 @@ def signup_ajax_function(request):
     else:
         return JsonResponse({"status":"Failed"})
 
+def creatingOTP():
+    otp = ""
+    for i in range(11):
+        otp+= f'{random.randint(0,9)}'
+    return otp
 
 
 def signin_ajax_function(request):
