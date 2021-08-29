@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -11,7 +12,7 @@
       type="text/css"
       media="all"
     />
-    <script type="text/javascript" src="static/js/otp.js"></script>
+    <script type="text/javascript" src="{% static 'js/otp.js' %}"></script>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -39,6 +40,7 @@
             id="otp"
             class="inputs d-flex flex-row justify-content-center mt-2"
           >
+          <form action="" method="post">
             <input
               class="m-2 text-center form-control rounded"
               type="text"
@@ -75,10 +77,12 @@
               id="sixth"
               maxlength="1"
             />
+            </form>
           </div>
           <div class="mt-4">
             <button class="btn btn-danger px-4 validate">Submit</button>
           </div>
+
         </div>
       </div>
     </div>

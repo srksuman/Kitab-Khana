@@ -91,11 +91,14 @@ def signup_ajax_function(request):
         email = request.POST.get('email')
         print(email)
         if form.is_valid():
-            print("suman raj khanal is good inside view function")
             if User.objects.filter(email=email).exists():
                return JsonResponse({"error_email":"Email already exists"}) 
             else:
-                form.save()
+                email = form.cleaned_data['email']
+                otp = sendEmail(email)
+                dt = PreRegistration(first_name=form.cleaned_data['first_name'],last_name=form.cleaned_data['last_name'],username= form.cleaned_data['username'],email=email,otp=otp,password1 = form.cleaned_data['password1'],password2 = form.cleaned_data['password2'])
+                dt.save()
+                # form.save()
                 return JsonResponse({"status":200})      
         else:
             error_name =[]
@@ -143,7 +146,7 @@ def signin_ajax_function(request):
 
 def creatingOTP():
     otp = ""
-    for i in range(11):
+    for i in range(7):
         otp+= f'{random.randint(0,9)}'
     return otp
 
@@ -191,7 +194,7 @@ def verifyUser(request):
                     return HttpResponseRedirect('/verify/')
         else:            
             form = VerifyForm()
-        return render(request,'html/verify.html',{'form':form})
+        return render(request,'otp.html',{'form':form})
     else:
-        return HttpResponseRedirect('/success/')
+        return HttpResponseRedirect('/')
 
