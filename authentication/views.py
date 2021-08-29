@@ -12,6 +12,8 @@ from django.contrib.auth import get_user_model
 from django.http import JsonResponse
 from .models import PreRegistration
 import random
+from django.core.mail import send_mail
+from django.conf import settings
 # Create your views here.
 # def registerFunction(request):
 #     if not request.user.is_authenticated:
@@ -143,6 +145,17 @@ def creatingOTP():
     otp = ""
     for i in range(11):
         otp+= f'{random.randint(0,9)}'
+    return otp
+
+def sendEmail(email):
+    otp = creatingOTP()
+    send_mail(
+    'One Time Password',
+    f'Your OTP pin is {otp}',
+    settings.EMAIL_HOST_USER,
+    [email],
+    fail_silently=False,
+    )
     return otp
 
 def verifyUser(request):
