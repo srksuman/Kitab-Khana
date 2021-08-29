@@ -1,5 +1,7 @@
 from django.contrib import admin
 
+from django.contrib.auth.models import Group
+
 # Register your models here.
 from .models import(
     UploadsBook, personal_information, 
@@ -16,3 +18,5 @@ class UploadsBookModelAdmin(admin.ModelAdmin):
 class personal_informationModelAdmin(admin.ModelAdmin):
     list_display = ['id', 'Name', 'Phone_number', 'Email', 'State', 'District', 'municipality', 'VDC', 'Ward_No']
 
+
+admin.site.unregister(Group)
