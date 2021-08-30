@@ -9,4 +9,5 @@ urlpatterns = [
     path('verify/',views.verifyUser,name="verify"),
     path('otp/',views.verifyUser,name="otp")
 
+
 ]
