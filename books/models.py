@@ -58,6 +58,7 @@ STATE_CHOICES = (
 
 
 class personal_information(models.Model):
+    username = models.CharField(max_length=100)
     Name = models.CharField(max_length=100)
     Phone_number = models.CharField(max_length=10)
     Email = models.EmailField(max_length=100)
