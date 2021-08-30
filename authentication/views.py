@@ -146,7 +146,7 @@ def signin_ajax_function(request):
 
 def creatingOTP():
     otp = ""
-    for i in range(7):
+    for i in range(6):
         otp+= f'{random.randint(0,9)}'
     return otp
 
