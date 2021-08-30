@@ -436,10 +436,10 @@ $(document).ready(function(){
 
         if (data.status == 200){
            
-            $('.success_msg').html("Account is created successfully!")
-
-            $('form')[1].reset()
-        }
+            {% comment %} $('.success_msg').html("Account is created successfully!") {% endcomment %}
+            {% comment %} $('form')[1].reset() {% endcomment %}
+			window.location = "{% url 'otp' %}"
+		}
                
                
             }

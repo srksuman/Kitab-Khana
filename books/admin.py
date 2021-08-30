@@ -1,5 +1,6 @@
 from django.contrib import admin
 
+from django.contrib.auth.models import Group
 
 # Register your models here.
 from .models import(
@@ -21,3 +22,5 @@ class personal_informationModelAdmin(admin.ModelAdmin):
 class ContactModelAdmin(admin.ModelAdmin):
     list_display = ['Name','Email','Telephone','Subject','Message','date']
 
+
+admin.site.unregister(Group)
