@@ -216,7 +216,7 @@ def verifyUser(request):
                     return HttpResponseRedirect('/verify/')   
                 else:
                     messages.success(request,'Entered OTO is wrong')
-                    return HttpResponseRedirect('/verify/')
+                    return HttpResponseRedirect('/reg_show/')
         else:            
             form = VerifyForm()
         return render(request,'otp.html',{'form':form})
