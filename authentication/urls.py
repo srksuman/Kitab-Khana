@@ -7,4 +7,5 @@ urlpatterns = [
     path('reg/',views.signup_ajax_function,name='reg'),
     path('login/',views.signin_ajax_function,name='login')
 
+
 ]

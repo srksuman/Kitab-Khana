@@ -1,4 +1,6 @@
 from pathlib import Path
+
+from django.core.mail.message import EmailMessage
 import registerfrontend
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -13,6 +15,7 @@ SECRET_KEY = 'django-insecure-x)p%k0j^&5^5r8g+38a_)(#@@x)h@@#0$)aq5%ctos(%+0t@8*
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+
 
 ALLOWED_HOSTS = []
 
@@ -122,4 +125,5 @@ if DEBUG:
     STATICFILES_DIRS = [BASE_DIR / "static"]
 else:
     STATIC_ROOT = 'static/'
+
 
