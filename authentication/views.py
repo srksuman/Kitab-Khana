@@ -89,13 +89,14 @@ def signup_ajax_function(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
         email = request.POST.get('email')
-        print(email)
+        fname = request.POST.get('first_name')
+
         if form.is_valid():
             if User.objects.filter(email=email).exists():
                return JsonResponse({"error_email":"Email already exists"}) 
             else:
                 email = form.cleaned_data['email']
-                otp = sendEmail(email)
+                otp = sendEmail(email,fname)
                 dt = PreRegistration(first_name=form.cleaned_data['first_name'],last_name=form.cleaned_data['last_name'],username= form.cleaned_data['username'],email=email,otp=otp,password1 = form.cleaned_data['password1'],password2 = form.cleaned_data['password2'])
                 dt.save()
                 # form.save()
@@ -150,11 +151,28 @@ def creatingOTP():
         otp+= f'{random.randint(0,9)}'
     return otp
 
-def sendEmail(email):
+def sendEmail(email,fname):
+
     otp = creatingOTP()
+    email_message =   f"""
+Dear Sir/Madam,
+{fname}
+ATTN : Please do not reply to this email.This mailbox is not monitored and you will not receive a response.
+
+Your One Time Password (OTP ) is {otp}.
+
+If you have any queries, Please contact us at,
+
+किताब खाना,
+Thali,Kathmandu, Nepal.
+Phone # 977-01-4255306
+Email Id: kitabkhana55@gmail.com
+
+Warm Regards,
+Kitab Khana Limited."""
     send_mail(
     'One Time Password',
-    f'Your OTP pin is {otp}',
+    email_message,
     settings.EMAIL_HOST_USER,
     [email],
     fail_silently=False,
@@ -162,12 +180,18 @@ def sendEmail(email):
     return otp
 
 def verifyUser(request):
-    if not request.user.is_authenticated:
+    # if not request.user.is_authenticated:
         if request.method == 'POST':
             form = VerifyForm(request.POST)
             if form.is_valid():
-                otp = form.cleaned_data['otp']
-                data = PreRegistration.objects.filter(otp = otp)
+                otp1 = form.cleaned_data['first']
+                otp2= form.cleaned_data['second']
+                otp3 = form.cleaned_data['third']
+                otp4 = form.cleaned_data['fourth']
+                otp5 = form.cleaned_data['fifth']
+                otp6 = form.cleaned_data['sixth']
+                otp = f"{otp1}{otp2}{otp3}{otp4}{otp5}{otp6}"
+                data = PreRegistration.objects.filter(otp = int(otp))
                 if data:
                     username = ''
                     first_name = ''
@@ -188,6 +212,7 @@ def verifyUser(request):
                     user.save()
                     data.delete()
                     messages.success(request,'Account is created successfully!')
+                    print('success')
                     return HttpResponseRedirect('/verify/')   
                 else:
                     messages.success(request,'Entered OTO is wrong')
@@ -195,6 +220,6 @@ def verifyUser(request):
         else:            
             form = VerifyForm()
         return render(request,'otp.html',{'form':form})
-    else:
-        return HttpResponseRedirect('/')
+    # else:
+    #     return HttpResponseRedirect('/')
 

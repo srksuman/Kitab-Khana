@@ -37,11 +37,12 @@
             <span>A code has been sent to</span> <small>*******.com</small>
           </div>
           <form action="" method="POST">
+          {% csrf_token %}
             <div
               id="otp"
               class="inputs d-flex flex-row justify-content-center mt-2"
             >
-              <input
+              {% comment %} <input
                 class="m-2 text-center form-control rounded"
                 type="text"
                 id="first"
@@ -82,12 +83,18 @@
                 id="sixth"
                 maxlength="1"
                 name = "sixth"
-              />
+              /> {% endcomment %}
+              {{form.first}}
+              {{form.second}}
+              {{form.third}}
+              {{form.fourth}}
+              {{form.fifth}}
+              {{form.sixth}}
             </div>
-          </form>
           <div class="mt-4">
-            <button class="btn btn-danger px-4 validate">Submit</button>
+          <input type="submit" value="Verify" class="btn btn-danger px-4 validate" >
           </div>
+          </form>
         </div>
       </div>
     </div>

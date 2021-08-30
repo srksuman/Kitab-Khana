@@ -6,5 +6,4 @@ from books import views
 urlpatterns = [
     path('contact/',views.contact, name="contact"),
     
-
 ]

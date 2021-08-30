@@ -25,7 +25,13 @@ class LoginForm(AuthenticationForm):
     password = forms.CharField(widget=forms.PasswordInput(attrs={"placeholder":"password",'autocomplete':'current-password'}),error_messages={'required':'Password is required'})    
 
 class VerifyForm(forms.Form):
-    otp = forms.CharField(label='OTP',max_length=70,widget=forms.TextInput(attrs={'class':'form-control','placeholder':'OTP','required':True}),error_messages={'required':'Enter a otp'})
+    # otp = forms.CharField(label='OTP',max_length=70,widget=forms.TextInput(attrs={'class':'form-control','placeholder':'OTP','required':True}),error_messages={'required':'Enter a otp'})
+    first = forms.CharField(max_length=1,widget=forms.TextInput(attrs={'class':'m-2 text-center form-control rounded','id':'first','required':True}))
+    second = forms.CharField(max_length=1,widget=forms.TextInput(attrs={'class':'m-2 text-center form-control rounded','id':'second','required':True}))
+    third = forms.CharField(max_length=1,widget=forms.TextInput(attrs={'class':'m-2 text-center form-control rounded','id':'third','required':True}))
+    fourth = forms.CharField(max_length=1,widget=forms.TextInput(attrs={'class':'m-2 text-center form-control rounded','id':'fourth','required':True}))
+    fifth = forms.CharField(max_length=1,widget=forms.TextInput(attrs={'class':'m-2 text-center form-control rounded','id':'fifth','required':True}))
+    sixth = forms.CharField(max_length=1,widget=forms.TextInput(attrs={'class':'m-2 text-center form-control rounded','id':'sixth','required':True}))
 
         
         
