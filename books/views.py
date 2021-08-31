@@ -17,3 +17,14 @@ def contact(request):
          contact = Contact(Name = Name, Email=Email, Telephone=Telephone, Subject= Subject, Message=Message, date=datetime.today())
          contact.save()
     return render(request, 'mail.html')
+
+def about(request):
+     return  render(request, 'about.html')
+def faqs(request):
+     return  render(request, 'faqs.html')
+def products(request):
+     return  render(request, 'products.html')
+def services(request):
+     return  render(request, 'services.html')
+def single(request):
+     return  render(request, 'single.html')
