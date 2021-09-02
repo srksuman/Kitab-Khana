@@ -1,22 +1,25 @@
 from django.db.models import fields
 from books.models import UploadsBook
 from django import forms
-from .models import Label_CHOICES, TYPES_OF_BOOK_CHOICES, UploadsBook, personal_information
+from .models import Label_CHOICES, TYPES_OF_BOOK_CHOICES, UploadsBook
 from django.forms.widgets import NumberInput
+from django.core.exceptions import ValidationError
+import re
 
 
 class AddProductForm(forms.ModelForm):
-    
-    class Meta:
+     Seller_phoneno = forms.IntegerField(label="phoneno",widget=forms.TextInput(attrs={"placeholder":"phoneno", 'class':'form-control','style':'margin-bottom:10px; width:450px'}),error_messages={'required':'phoneno is required'})
+     class Meta:
         model = UploadsBook
        
-        fields = ['isbn','Book_Name','Author_Name','ReleaseDate','Selling_price','Description','Publication','Types_of_Book','Label','Quantity','Image']
+        fields =  ['isbn','Book_Name','Seller_phoneno','Seller_address','Author_Name','ReleaseDate','Selling_price','Description','Publication','Types_of_Book','Label','Quantity','Image']
    
         widgets={
             
             'isbn':forms.TextInput(attrs={'class':'form-control','style':'margin-bottom:10px; width:450px','placeholder':'isbn'}),
             'Book_Name':forms.TextInput(attrs={'class':'form-control','style':'margin-bottom:10px; width:450px','placeholder':'book name',}),
             'Author_Name':forms.TextInput(attrs={'class':'form-control','style':'margin-bottom:10px; width:450px','placeholder':'author name',}),
+            'Seller_address':forms.TextInput(attrs={'class':'form-control','style':'margin-bottom:10px;    width:450px','placeholder':'address',}),
             'ReleaseDate':forms.NumberInput(attrs={'type':'date','class':'form-control','style':'margin-bottom:10px; width:450px','placeholder':'released date',}),
             'Selling_price':forms.TextInput(attrs={'class':'form-control','style':'margin-bottom:10px; width:450px','placeholder':'selling price',}),
             'Description':forms.Textarea(attrs={'class':'form-control','style':'margin-bottom:10px; width:450px','placeholder':'description ',}),
@@ -29,25 +32,25 @@ class AddProductForm(forms.ModelForm):
 
 
 
-class AddSellerForm(forms.ModelForm):
+# class AddSellerForm(forms.ModelForm):
     
-    class Meta:
-        model = personal_information
-        fields = [ 'Name', 'Phone_number', 'Email', 'State', 'District', 'municipality', 'VDC', 'Ward_No']
+#     class Meta:
+#         model = personal_information
+#         fields = [ 'Name', 'Phone_number', 'Email', 'State', 'District', 'municipality', 'VDC', 'Ward_No']
    
-        widgets={
+#         widgets={
             
-            'isbn':forms.TextInput(attrs={'class':'form-control','style':'margin-bottom:10px; width:450px','placeholder':'isbn'}),
-            'Book_Name':forms.TextInput(attrs={'class':'form-control','style':'margin-bottom:10px; width:450px','placeholder':'book name',}),
-            'Author_Name':forms.TextInput(attrs={'class':'form-control','style':'margin-bottom:10px; width:450px','placeholder':'author name',}),
-            'ReleaseDate':forms.NumberInput(attrs={'type':'date','class':'form-control','style':'margin-bottom:10px; width:450px','placeholder':'released date',}),
-            'Selling_price':forms.TextInput(attrs={'class':'form-control','style':'margin-bottom:10px; width:450px','placeholder':'selling price',}),
-            'Description':forms.Textarea(attrs={'class':'form-control','style':'margin-bottom:10px; width:450px','placeholder':'description ',}),
-            'Publication':forms.TextInput(attrs={'class':'form-control','style':'margin-bottom:10px; width:450px','placeholder':'publication',}),
-            'Label':forms.TextInput(attrs={'class':'form-control','style':'margin-bottom:10px; width:300px',}),
-            'Types_of_Book':forms.TextInput(attrs={'class':'form-control','style':'margin-bottom:10px; width:300px',}),
-            'Quantity':forms.TextInput(attrs={'class':'form-control','style':'margin-bottom:10px; width:300px',}),
-            'Image':forms.TextInput(attrs={'class':'form-control  ','style':'form-control','style':'margin-bottom:10px; width:300px','placeholder':'choose image',})}
+#             'isbn':forms.TextInput(attrs={'class':'form-control','style':'margin-bottom:10px; width:450px','placeholder':'isbn'}),
+#             'Book_Name':forms.TextInput(attrs={'class':'form-control','style':'margin-bottom:10px; width:450px','placeholder':'book name',}),
+#             'Author_Name':forms.TextInput(attrs={'class':'form-control','style':'margin-bottom:10px; width:450px','placeholder':'author name',}),
+#             'ReleaseDate':forms.NumberInput(attrs={'type':'date','class':'form-control','style':'margin-bottom:10px; width:450px','placeholder':'released date',}),
+#             'Selling_price':forms.TextInput(attrs={'class':'form-control','style':'margin-bottom:10px; width:450px','placeholder':'selling price',}),
+#             'Description':forms.Textarea(attrs={'class':'form-control','style':'margin-bottom:10px; width:450px','placeholder':'description ',}),
+#             'Publication':forms.TextInput(attrs={'class':'form-control','style':'margin-bottom:10px; width:450px','placeholder':'publication',}),
+#             'Label':forms.TextInput(attrs={'class':'form-control','style':'margin-bottom:10px; width:300px',}),
+#             'Types_of_Book':forms.TextInput(attrs={'class':'form-control','style':'margin-bottom:10px; width:300px',}),
+#             'Quantity':forms.TextInput(attrs={'class':'form-control','style':'margin-bottom:10px; width:300px',}),
+#             'Image':forms.TextInput(attrs={'class':'form-control  ','style':'form-control','style':'margin-bottom:10px; width:300px','placeholder':'choose image',})}
 
 
    

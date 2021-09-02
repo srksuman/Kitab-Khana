@@ -42,32 +42,9 @@ class UploadsBook(models.Model):
    Types_of_Book = models.CharField(choices=TYPES_OF_BOOK_CHOICES, max_length=100)
    Quantity = models.PositiveBigIntegerField(default=1)
    Image = models.ImageField(upload_to='book_images/')
+   Seller_phoneno = models.PositiveBigIntegerField(null=True,blank=True)
+   Seller_address = models.CharField(max_length=200,null=True,blank=True)
 
-
-
-STATE_CHOICES = (
-    ('State No. 1', 'State No. 1'),
-      ('State No. 2', 'State No. 2'),
-        ('State No. 3', 'State No. 3'),
-          ('State No. 4', 'State No. 4'),
-           ('State No. 5', 'State No. 5'),
-              ('State No. 6', 'State No. 6'),
-                ('State No. 7', 'State No. 7')
-)
-
-
-class personal_information(models.Model):
-    Name = models.CharField(max_length=100)
-    Phone_number = models.CharField(max_length=10)
-    Email = models.EmailField(max_length=100)
-    State = models.CharField(choices=STATE_CHOICES, max_length=200)
-    District = models.CharField(max_length=100)
-    municipality = models.CharField(max_length=200)
-    VDC = models.CharField(max_length=100)
-    Ward_No = models.FloatField(null=True)
-
-    def __str__(self):
-        return str(self.id)
 
 
 class Contact(models.Model):
