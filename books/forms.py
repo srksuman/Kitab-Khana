@@ -6,9 +6,17 @@ from django.forms.widgets import NumberInput
 from django.core.exceptions import ValidationError
 import re
 
+def validate_Seller_phoneno(value):
+    a=re.search("^9[0-9]{9}",value)
+    if len(str(value))!=10:
+        raise ValidationError("The number you enter is incorrect.")
+    elif(a):
+        raise ValidationError("Check the phone no format ")
+
+
 
 class AddProductForm(forms.ModelForm):
-     Seller_phoneno = forms.IntegerField(label="phoneno",widget=forms.TextInput(attrs={"placeholder":"phoneno", 'class':'form-control','style':'margin-bottom:10px; width:450px'}),error_messages={'required':'phoneno is required'})
+     Seller_phoneno = forms.IntegerField(label="phoneno",widget=forms.TextInput(attrs={"placeholder":"phoneno", 'class':'form-control','style':'margin-bottom:10px; width:450px'}),validators=[validate_Seller_phoneno],error_messages={'required':'phoneno is required'})
      class Meta:
         model = UploadsBook
        
