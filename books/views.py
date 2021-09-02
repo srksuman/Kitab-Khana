@@ -3,6 +3,7 @@ from django.http.response import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from  books.models import Contact
 from datetime import datetime
+from .forms import AddProductForm
 
 
 
@@ -17,3 +18,11 @@ def contact(request):
          contact = Contact(Name = Name, Email=Email, Telephone=Telephone, Subject= Subject, Message=Message, date=datetime.today())
          contact.save()
     return render(request, 'mail.html')
+
+def addproduct(request):
+     return render(request,'addproduct.html')
+
+def add(request):
+    
+    return render(request,'add.html',context={'form':AddProductForm()})
+

@@ -9,7 +9,7 @@ from .models import(
 
 @admin.register(UploadsBook)
 class UploadsBookModelAdmin(admin.ModelAdmin):
-    list_display = ['id', 'Book_Name', 'Author_Name', 'Description', 'ReleaseDates', 'Selling_price', 'Discount_price', 'Lable', 'Publication', 'Types_of_Book', 'Quantity', 'Image']
+    list_display =  ['isbn','Book_Name','Author_Name','ReleaseDate','Selling_price','Description','Publication','Types_of_Book','Label','Quantity','Image']
 
 
 

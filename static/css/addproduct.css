@@ -1,0 +1,17 @@
+body {
+    background-color: rgb(255, 255, 255)
+}
+
+.card {
+    padding: 10px;
+    height: 250px;
+    border: none;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    -webkit-box-shadow: 0px 1px 9px 3px rgba(219, 210, 219, 1);
+    -moz-box-shadow: 0px 1px 9px 3px rgba(219, 210, 219, 1);
+    box-shadow: 0px 1px 9px 3px rgba(219, 210, 219, 1);
+    display: flex;
+    justify-content: center;
+    align-items: center
+}

@@ -4,7 +4,7 @@ from django.db import models
 # Create your models here.
 
 
-Lable_CHOICES = (
+Label_CHOICES = (
 
     ('o', 'Old'),
     ('N', 'New'),   
@@ -31,20 +31,19 @@ TYPES_OF_BOOK_CHOICES = (
   
 )
 class UploadsBook(models.Model):
+   isbn = models.CharField(max_length=30)
    Book_Name = models.CharField(max_length=200)
    Author_Name = models.CharField(max_length=100)
    Description = models.TextField()
-   ReleaseDates = models.DateTimeField()
+   ReleaseDate = models.DateTimeField()
    Selling_price = models.FloatField()
-   Discount_price = models.FloatField(null=True)
-   Lable = models.CharField(choices=Lable_CHOICES, max_length=2)
+   Label = models.CharField(choices=Label_CHOICES, max_length=2)
    Publication = models.CharField(max_length=200)
    Types_of_Book = models.CharField(choices=TYPES_OF_BOOK_CHOICES, max_length=100)
    Quantity = models.PositiveBigIntegerField(default=1)
    Image = models.ImageField(upload_to='book_images/')
 
-def __str__(self):
-        return str(self.id)
+
 
 STATE_CHOICES = (
     ('State No. 1', 'State No. 1'),
