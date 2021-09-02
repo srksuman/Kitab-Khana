@@ -233,7 +233,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <input type="submit" value="Register" id="reg" name="reg_form">
 					</form>
-
+<div class="loading"></div>
 				  </div>
 				  <div class="cta success_msg error_msg"></div>
 				</div>
@@ -436,11 +436,11 @@ $(document).ready(function(){
 
         if (data.status == 200){
            
-            $('.success_msg').html("Account is created successfully!")
-
-            $('form')[1].reset()
-        }
-               
+            {% comment %} $('.success_msg').html("Account is created successfully!") {% endcomment %}
+            {% comment %} $('form')[1].reset() {% endcomment %}
+			$('.loading').html(` <div class="spinner-border text-info" style="width:3rem; height: 3rem;" ></div>`)
+			window.location = "{% url 'otp' %}"
+		}
                
             }
         })
