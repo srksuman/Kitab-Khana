@@ -7,8 +7,6 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-  
     <link rel="stylesheet" href="{% static 'css/easy-responsive-tabs.css' %}">
     <link rel="stylesheet" href="{% static 'css/creditly.css' %}">
     <link rel="stylesheet" href="{% static 'css/bootstrap.css'%}">
@@ -18,6 +16,7 @@
     <link rel="stylesheet" href="{% static 'css/style.css'%}">
     <link rel="stylesheet" href="{% static 'css/otp.css'%}">
     <title>Kitab Khana{% block title %} {% endblock title %} </title>
+	<script src="static/js/jquery-1.11.1.min.js"></script>
    <link href='//fonts.googleapis.com/css?family=Ubuntu:400,300,300italic,400italic,500,500italic,700,700italic' rel='stylesheet' type='text/css'>
    <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>  
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
@@ -52,7 +51,7 @@
 					<div class="mega-dropdown-menu">
 						<div class="w3ls_vegetables">
 							<ul class="dropdown-menu drp-mnu">
-								<li><a href="{% url 'login' %}">Login</a></li> 
+								<li><a href="{% url 'reg_show' %}">Login</a></li> 
 								<li><a href="{% url 'reg' %}">Sign Up</a></li>
 							</ul>
 						</div>                  
@@ -103,11 +102,6 @@
 			<div class="clearfix"> </div>
 		</div>
 	</div>
-<!-- //header -->
-<!-- banner -->
-
-			   <!-- Collect the nav links, forms, and other content for toggling -->
-		
 
 
 
@@ -201,5 +195,6 @@
   <script src="{% static 'js/okzoom.js' %}"></script>
    <script src="{% static 'js/otp.js' %}"></script>
    <script src="{% static 'js/waypoints.min.js' %}"></script>
+   
 </body>
 </html>

@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %}Home page{% endblock title %}
+{% block title %}About page{% endblock title %}
+
 {% block main-content %}
 
 <!-- //header -->
@@ -73,7 +74,7 @@
 			<p class="animi">The goal of this project is to buy and sell the books through online platform. This project is entitled as “KitabKhana” which mean the collections of book. The main objective of this project is that the customers can buy the book without signing into the system which makes easy to operate. Through this system any people who are interested to sell their old as well as new books can sell their books without any charges. This store is an online web application where the customers can sell and buy the books. Through this application the sellers can add their book details along with their personal information so that the customers can contact them and buy their product.<br> The customers can also view the price of the books.</p>
 			<div class="agile_about_grids">
 				<div class="col-md-6 agile_about_grid_right">
-					<img src="img/bannermi3.jpg" alt=" " class="img-responsive" />
+					<img src="{% static 'img/bannermi3.jpg' %}" alt=" " class="img-responsive" />
 				</div>
 				<div class="col-md-6 agile_about_grid_left">
 					<ol>
@@ -146,4 +147,5 @@ $(document).ready(function(){
 		});
 
 	</script>
+
 {% endblock main-content %}

@@ -1,7 +1,9 @@
+<!-- header -->
 {% extends 'base.html' %}
 {% load static %}
 {% block title %}Home page{% endblock title %}
 {% block main-content %}
+<!-- banner -->
 	<div class="banner">
 		<div class="w3l_banner_nav_left">
 			<nav class="navbar nav_bottom">
@@ -14,7 +16,8 @@
 					<span class="icon-bar"></span>
 				  </button>
 			   </div> 
-	<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
+			   <!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
 					<ul class="nav navbar-nav nav_1">
 						<li><a href="products.html">Novel</a></li>
 						<li><a href="#">Historical</a></li>
@@ -39,13 +42,17 @@
 										<li><a href="#">+2</a></li>
 										<li><a href="#">Bachelor</a></li>
 										<li><a href="#">Master  and degree</a></li>
+										
+										
 									</ul>
 								</div>                  
 							</div>	
 						</li>
 						<li><a href="#">Action and Adventure</a></li>
-            </ul>
-				 </div>
+				
+						
+					</ul>
+				 </div><!-- /.navbar-collapse -->
 			</nav>
 		</div>
 		<div class="w3l_banner_nav_right">
@@ -400,4 +407,5 @@ $(document).ready(function(){
 
 	</script>
 
+	
 {% endblock main-content %}
