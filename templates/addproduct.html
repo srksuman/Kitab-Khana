@@ -1,33 +1,26 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-{% load static %}
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-    
-  
-      {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+   {% load static %}
    {% block css %}
    <link rel = "stylesheet" type="text/css" href="{% static 'css/addproduct.css' %}">
    <link rel = "stylesheet" type="text/css" href="{% static 'css/font-awesome.css' %}">
    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" type="text/css" media="all" />
-   <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" media="all" />
+<link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" media="all" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js">
     
    
    {% endblock css %}
    
-    <title>{% block title %}{% endblock title %}</title>
-  </head>
-  <body>
-    {% block content %}{% endblock content %}
-    {% block header %}
-    
+    <title>Document</title>
+</head>
+<body>
+
+
 
 <!-- header -->
 	<div class="agileits_header">
@@ -162,27 +155,38 @@
 				 </div><!-- /.navbar-collapse -->
 			</nav>
 		</div>
-		
+		<div class="w3l_banner_nav_right">
+
+
 
 
 
     
-    
-    {% endblock header %}
-    {% block body %}{% endblock body %}
+<div class="container px-4 ">
+    <div class="text-center mb-5">
+        <h1>Welcome!!</h1>
+    </div>
+    <div class="row ">
+        <div class="col">
+            <div class="card "> 
+        <span style="font-size: 3rem; ">
+        <a href="/add"> <i class="fa fa-plus-circle" aria-hidden="true"></i></a> </span>
+        <h3>Add Product </h3>
+         </div>
+        </div>
+        
+        <div class="col">
+            <div class="card"> 
+             <span style="font-size: 3rem;">
+             <a href="/view"> <i class="fa fa-eye" aria-hidden="true"></i></a> </span>
+            <h3>View Product </h3>
+            </div>
+        </div>
+    </div>
+</div>
 
-    <!-- Optional JavaScript; choose one of the two! -->
 
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
-    -->
-    {% block js %}
-	<script src="static/js/jquery-1.11.1.min.js"></script>
-	{% endblock js %}
-  </body>
+
+</body>
 </html>
