@@ -25,3 +25,5 @@ def addproduct(request):
 def add(request):
      return render(request,'add.html',context={'form':AddProductForm()})
 
+def view(request):
+    return render(request, 'view.html')
