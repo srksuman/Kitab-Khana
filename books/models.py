@@ -6,8 +6,8 @@ from django.db import models
 
 Label_CHOICES = (
 
-    ('o', 'Old'),
-    ('N', 'New'),   
+    ('Old', 'Old'),
+    ('New', 'New'),   
 )
 
 
@@ -35,15 +35,15 @@ class UploadsBook(models.Model):
    Book_Name = models.CharField(max_length=200)
    Author_Name = models.CharField(max_length=100)
    Description = models.TextField()
-   ReleaseDate = models.DateTimeField()
+   ReleaseDate = models.DateField()
    Selling_price = models.FloatField()
-   Label = models.CharField(choices=Label_CHOICES, max_length=2)
-   Publication = models.CharField(max_length=200)
-   Types_of_Book = models.CharField(choices=TYPES_OF_BOOK_CHOICES, max_length=100)
+   Label = models.CharField(choices=Label_CHOICES,default='New', max_length=3)
+   Publication = models.CharField(max_length=300)
+   Types_of_Book = models.CharField(choices=TYPES_OF_BOOK_CHOICES,default='Action and Adventure', max_length=300)
    Quantity = models.PositiveBigIntegerField(default=1)
    Image = models.ImageField(upload_to='book_images/')
-   Seller_phoneno = models.PositiveBigIntegerField(null=True,blank=True)
-   Seller_address = models.CharField(max_length=200,null=True,blank=True)
+   Seller_phoneno = models.PositiveBigIntegerField()
+   Seller_address = models.CharField(max_length=200)
 
 
 
