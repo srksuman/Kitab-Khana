@@ -41,7 +41,7 @@ class UploadsBook(models.Model):
    Publication = models.CharField(max_length=300)
    Types_of_Book = models.CharField(choices=TYPES_OF_BOOK_CHOICES,default='Action and Adventure', max_length=300)
    Quantity = models.PositiveBigIntegerField(default=1)
-   Image = models.ImageField(upload_to='book_images/')
+   Image = models.ImageField() #upload_to='book_images/'
    Seller_phoneno = models.PositiveBigIntegerField()
    Seller_address = models.CharField(max_length=200)
 
