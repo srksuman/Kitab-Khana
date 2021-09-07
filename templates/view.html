@@ -1,0 +1,60 @@
+{% extends 'base.html' %} {% block body %}
+<!-- Book List -->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="text-center">View Book List</h1>
+      <div>
+        <a
+          class="btn btn-secondary"
+          href="/add/"
+          role="button"
+          style="float: right"
+          >Add</a
+        >
+      </div>
+      <table class="table" style="margin-top: 2%">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Book Name</th>
+            <th scope="col">Category</th>
+            <th scope="col">Author</th>
+            <th scope="col">ISBN</th>
+            <th scope="col">Label</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>What is Lorem Ipsum?</td>
+            <td>Horror</td>
+            <td>Lorem Ipsum</td>
+            <td>9780596007010</td>
+            <td>Old</td>
+            <td>
+              <a href="/edit/1" class="btn btn-primary">Edit</a>
+              <a href="/delete/1" class="btn btn-danger">Delete</a>
+            </td>
+          </tr>
+        </tbody>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>What is Lorem Ipsum?</td>
+            <td>Horror</td>
+            <td>Lorem Ipsum</td>
+            <td>9780596007010</td>
+            <td>Old</td>
+            <td>
+              <a href="/edit/1" class="btn btn-primary">Edit</a>
+              <a href="/delete/1" class="btn btn-danger">Delete</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock body %}
