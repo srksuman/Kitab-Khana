@@ -3,6 +3,7 @@ from django.shortcuts import render
 from books.models import UploadsBook
 import random
 # Create your views here.
+
 #  get_type_book_and_qty_number
 def bookAndQty():
     name_qty = {}
@@ -26,7 +27,11 @@ def generating_different_color_function(l):
         rgb_list.append(rgb)
     return rgb_list
 
+
 def showChart(request):
     name_qty = bookAndQty()
-    print(name_qty)
-    return JsonResponse(name_qty)
+    color_list = generating_different_color_function(len(name_qty))
+    print(color_list)
+    return render(request,'chart.html',context={'color':color_list,'name':name_qty})
+
+
