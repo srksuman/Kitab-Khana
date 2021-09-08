@@ -64,6 +64,40 @@
     ></script>
 
     <script>
+{% comment %} Bar chart {% endcomment %}
+var ctx = document.getElementById('barChart').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels:[{% for s in name.keys %}'{{s}}',{% endfor %}],
+          datasets: [{
+            label: 'Types of Books',
+            data: [{% for s in name.values %}{{s}},{% endfor %}],
+            backgroundColor: [{% for col  in color  %}'{{col}}',{% endfor %}] ,
+            borderColor: [{% for col  in color  %}'{{col}}',{% endfor %}] ,
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            },
+            gridLines: {
+          display: false
+        }
+        },
+         xAxes: [{
+        ticks: {
+          min: 0,
+        },
+        gridLines: {
+          color: "rgba(0, 0, 0, .125)",
+        }
+      }],
+       
+    }  
+});
 
 
 
