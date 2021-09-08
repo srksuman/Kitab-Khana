@@ -62,7 +62,7 @@
 {% comment %} Pie Chart {% endcomment %}
 <div class="col-md-6">
 <div class="border p-4 mx-1 my-1">
-<h4 class="text-muted">Line Chart</h4>
+<h4 class="text-muted">Pie Chart</h4>
 <canvas id="pieChart" width="400" height="200"></canvas>
 </div>
 </div>
@@ -155,7 +155,7 @@ var myChart = new Chart(ctx, {
     data: {
         labels:[{% for s in name.keys %}'{{s}}',{% endfor %}],
           datasets: [{
-            label: 'Number of Studnets',
+            label: 'Types of Books',
             data: [{% for s in name.values %}{{s}},{% endfor %}],
             backgroundColor: [{% for col  in color  %}'{{col}}',{% endfor %}] ,
             borderColor: [{% for col  in color  %}'{{col}}',{% endfor %}] ,
