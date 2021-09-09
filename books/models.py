@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 
 # Create your models here.
@@ -7,7 +8,7 @@ from django.db import models
 Label_CHOICES = (
 
     ('Old', 'Old'),
-    ('New', 'New'),   
+    ('New', 'New'),
 )
 
 
@@ -28,23 +29,27 @@ TYPES_OF_BOOK_CHOICES = (
     ('Bachelor', 'Bachelor'),
     ('Master  and degree', 'Master  and degree'),
     ('Other', 'Others'),
-  
-)
-class UploadsBook(models.Model):
-   isbn = models.CharField(max_length=30)
-   Book_Name = models.CharField(max_length=200)
-   Author_Name = models.CharField(max_length=100)
-   Description = models.TextField()
-   ReleaseDate = models.DateField()
-   Selling_price = models.FloatField()
-   Label = models.CharField(choices=Label_CHOICES,default='New', max_length=3)
-   Publication = models.CharField(max_length=300)
-   Types_of_Book = models.CharField(choices=TYPES_OF_BOOK_CHOICES,default='Action and Adventure', max_length=300)
-   Quantity = models.PositiveBigIntegerField(default=1)
-   Image = models.ImageField() #upload_to='book_images/'
-   Seller_phoneno = models.PositiveBigIntegerField()
-   Seller_address = models.CharField(max_length=200)
 
+)
+
+
+class UploadsBook(models.Model):
+    isbn = models.CharField(max_length=30)
+    Book_Name = models.CharField(max_length=200)
+    Author_Name = models.CharField(max_length=100)
+    Description = models.TextField()
+    ReleaseDate = models.DateField(default=timezone.now)
+    Selling_price = models.FloatField()
+    Label = models.CharField(choices=Label_CHOICES,
+                             default='New', max_length=3)
+    Publication = models.CharField(max_length=300)
+    Types_of_Book = models.CharField(
+        choices=TYPES_OF_BOOK_CHOICES, default='Action and Adventure', max_length=300)
+    Quantity = models.PositiveBigIntegerField(default=1)
+    # upload_to='book_images/'
+    Image = models.ImageField(upload_to='book_images/')
+    Seller_phoneno = models.PositiveBigIntegerField()
+    Seller_address = models.CharField(max_length=200)
 
 
 class Contact(models.Model):
@@ -53,4 +58,4 @@ class Contact(models.Model):
     Telephone = models.CharField(max_length=12)
     Subject = models.TextField()
     Message = models.TextField()
-    date = models.DateField() 
+    date = models.DateField()
