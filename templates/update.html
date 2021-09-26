@@ -1,0 +1,18 @@
+{% extends 'base.html' %} {% block body %}
+
+<!-- Update Book Form -->
+
+<div class="container">
+  <fieldset>
+    <h1 class="text-center">Edit Book Details</h1>
+    <form action="" method="POST" enctype="multipart/form-data">
+      <div class="container" style="margin-left: 30px">
+        {% csrf_token %} {{form.as_p}}
+        <br />
+        <input type="submit" class="btn btn-success" value="Update" />
+        <a href="{% url 'view' %}" class="btn btn-info">Back to View</a>
+      </div>
+    </form>
+  </fieldset>
+</div>
+{% endblock body %}
