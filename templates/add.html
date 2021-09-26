@@ -10,6 +10,7 @@
         {% csrf_token %} {{form.as_p}}
         <br />
         <input type="submit" class="btn btn-success" value="Submit" />
+        <a href="{% url 'view' %}" class="btn btn-info">Back to View</a>
       </div>
     </form>
   </fieldset>
