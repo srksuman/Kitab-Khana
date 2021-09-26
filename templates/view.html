@@ -36,8 +36,17 @@
             <td>{{book.isbn}}</td>
             <td>{{book.Label}}</td>
             <td>
-              <a href="/edit/1" class="btn btn-primary">Edit</a>
-              <a href="/delete/1" class="btn btn-danger">Delete</a>
+              <a href="{% url 'updatebook' book.id %}" class="btn btn-primary"
+                >Edit</a
+              >
+              <form
+                action="{% url 'deletebook' book.id  %}"
+                method="POST"
+                class="d-inline"
+              >
+                {% csrf_token %}
+                <input type="submit" value="Delete" class="btn btn-danger" />
+              </form>
             </td>
           </tr>
           {% endfor %}
