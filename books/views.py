@@ -24,6 +24,8 @@ def contact(request):
 def addproduct(request):
     return render(request, 'addproduct.html')
 
+# This function will add new book.
+
 
 def add(request):
     if request.method == 'POST':
@@ -52,9 +54,36 @@ def add(request):
         afm = AddProductForm()
     return render(request, 'add.html', {'form': afm})
 
+# This function will show all added book.
+
 
 def view(request):
     allbooks = UploadsBook.objects.all()
     print(allbooks)
     print("HEllo")
     return render(request, 'view.html', {'allbooks': allbooks})
+
+# This function will delete book data
+
+
+def delete_book(request, id):
+    if request.method == 'POST':
+        delb = UploadsBook.objects.get(pk=id)
+        delb.delete()
+        return HttpResponseRedirect('/view')
+
+
+# This function will edit the book details
+
+
+def update_book(request, id):
+    if request.method == 'POST':
+        updatebook = UploadsBook.objects.get(pk=id)
+        ufm = AddProductForm(request.POST, instance=updatebook)
+        if ufm.is_valid():
+            ufm.save()
+    else:
+        updatebook = UploadsBook.objects.get(pk=id)
+        ufm = AddProductForm(instance=updatebook)
+
+    return render(request, 'update.html', {'form': ufm})
