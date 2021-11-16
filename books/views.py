@@ -89,8 +89,10 @@ def update_book(request, id):
     return render(request, 'update.html', {'form': ufm})
 
 
+# home page
 def index_page(request):
-    return render(request, 'index.html')
+    all_books = UploadsBook.objects.all()
+    return render(request, 'index.html', context={"books": all_books})
 
 
 def about_page(request):
