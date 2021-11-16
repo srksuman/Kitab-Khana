@@ -1,7 +1,7 @@
 <!-- header -->
 <div class="agileits_header">
   <div class="w3l_offers">
-    <a href="products.html">Today's special Offers !</a>
+    <a href="{% url 'products' %}">Today's special Offers !</a>
   </div>
   <div class="w3l_search">
     <form action="#" method="post">
@@ -68,7 +68,7 @@
         <li><a href="{% url 'home' %}">Home</a><i>/</i></li>
         <li><a href="{% url 'about' %}">About Us</a><i>/</i></li>
         <li><a href="{% url 'products' %}">Best Deals</a><i>/</i></li>
-        <li><a href="services.html">Services</a></li>
+        <li><a href="{% url 'services' %}">Services</a></li>
       </ul>
     </div>
     <div class="w3ls_logo_products_left1">

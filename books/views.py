@@ -103,6 +103,10 @@ def product_page(request):
     return render(request, 'products.html')
 
 
+def services_page(request):
+    return render(request, 'services.html')
+
+
 def single_page_detail(request):
     return render(request, 'single.html')
 
