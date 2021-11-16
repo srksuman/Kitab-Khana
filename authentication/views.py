@@ -2,7 +2,6 @@ from django.shortcuts import render
 from django.contrib import auth
 from django.contrib.auth import forms
 from django.http.response import HttpResponse
-from django.shortcuts import render
 from .forms import UserCreationForm,LoginForm,VerifyForm
 from django.contrib.auth import authenticate,login
 from django.contrib import messages
