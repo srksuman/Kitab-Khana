@@ -8,7 +8,7 @@ from kitabkhana import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('about/', views.about_page),
+    path('about/', views.about_page, name='about'),
     path('', include('authentication.urls')),
     path('', include('books.urls')),
     path('', include('chart.urls')),
