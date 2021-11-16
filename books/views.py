@@ -87,3 +87,15 @@ def update_book(request, id):
         ufm = AddProductForm(instance=updatebook)
 
     return render(request, 'update.html', {'form': ufm})
+
+
+def index_page(request):
+    return render(request, 'index.html')
+
+
+def about_page(request):
+    return render(request, 'about.html')
+
+
+def product_page(request):
+    return render(request, 'products.html')

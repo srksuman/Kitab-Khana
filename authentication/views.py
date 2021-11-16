@@ -32,12 +32,6 @@ from django.conf import settings
 #         return HttpResponse("hello")
 
 
-def index_page(request):
-    return render(request, 'index.html')
-
-
-def about_page(request):
-    return render(request, 'about.html')
 
 # def loginFunction(request):
 #     if not request.user.is_authenticated:
