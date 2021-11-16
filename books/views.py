@@ -105,3 +105,9 @@ def product_page(request):
 
 def single_page_detail(request):
     return render(request, 'single.html')
+
+
+def single_page_detail(request, id):
+    get_particular_book = UploadsBook.objects.get(id=id)
+
+    return render(request, 'single.html', context={'get_particular': get_particular_book})
