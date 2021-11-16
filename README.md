@@ -1,11 +1,11 @@
-# OnlineBookStore Website Using Djnago (Kitab Khana)
+# OnlineBookStore Website Using Django (Kitab Khana)
 ## This Website is built for following purpose:-
 
 * For Selling books online.
 * Maintaining books selling history.
 * Adding and managing books.
 * User Friendly.
-* This is a Mini-project developed using Djnago, HTML And CSS.
+* This is a Mini-project developed using Django, HTML And CSS.
 
 ## Login User have Following Access for this online store site:-
 * Create New Account or Register.
