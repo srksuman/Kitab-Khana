@@ -101,3 +101,7 @@ def about_page(request):
 
 def product_page(request):
     return render(request, 'products.html')
+
+
+def single_page_detail(request):
+    return render(request, 'single.html')
